@@ -3,8 +3,3 @@ bbb
 ccc
 ddd
 eee
-fff
-ggg
-hhhh
-iii
-jjj
