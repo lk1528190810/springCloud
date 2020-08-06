@@ -5,4 +5,8 @@ public class GitTest {
         System.out.println("xxxxxxxxxxxxxxx " );
         System.out.println("aaaaaaaaa");
     }
+
+    public static void eat(){
+        System.out.println("eeeeeeee");
+    }
 }
