@@ -7,6 +7,6 @@ public class GitTest {
     }
 
     public static void eat(){
-        System.out.println("eeeeeeee");
+        System.out.println("eeeeeeesssssssssssssssse");
     }
 }
