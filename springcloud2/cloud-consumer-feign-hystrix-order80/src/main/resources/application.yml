@@ -1,0 +1,36 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-provider-hystrix-order
+
+eureka:
+  client:
+    register-with-eureka: true    #表识不向注册中心注册自己
+    fetch-registry: true   #表示自己就是注册中心，职责是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+
+###开启Hystrix断路器
+feign:
+  hystrix:
+    enabled: true #如果处理自身的容错就开启。开启方式与生产端不一样。
+  client:
+    config:
+      default:
+        connect-timeout: 5000
+        read-timeout: 5000
+
+hystrix:
+  command:
+    default:  #default全局有效，service id指定应用有效
+      execution:
+        timeout:
+          #当此处为true时比较的是connect-time 和 timeoutInMilliseconds的大小
+          #也就是一个是连接服务的最大时间和客户可以等待的时间
+          #当此处为false，全权交给ribbon负责
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000 #断路器超时时间，默认1000ms
